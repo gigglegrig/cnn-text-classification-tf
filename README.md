@@ -1,3 +1,10 @@
+**Changes**
+Based on Kim's original paper, danny's code and Cahya's modifycation. The following features are added:
+- L2 Norm constraint is added and set to 3
+- Allow several optimizers: AdaDelta(learning rate changed to 1) and RMSProp (original hyperparameters)
+- Allows word embedding, default set to word2vec
+- Removed metadata (header, footer, subject) of 20Newsgroup dataset
+
 **[This code belongs to the "Implementing a CNN for Text Classification in Tensorflow" blog post.](http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/)**
 
 It is slightly simplified implementation of Kim's [Convolutional Neural Networks for Sentence Classification](http://arxiv.org/abs/1408.5882) paper in Tensorflow.
