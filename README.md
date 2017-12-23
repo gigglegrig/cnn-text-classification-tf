@@ -1,5 +1,5 @@
-**Changes**
-Based on Kim's original paper, danny's code and Cahya's modifycation. The following features are added:
+**Changes Based on Kim's original paper, Danny's code and Cahya's modifycation.**
+The following features are added:
 - L2 Norm constraint is added and set to 3
 - Allow several optimizers: AdaDelta(learning rate changed to 1) and RMSProp (original hyperparameters)
 - Allows word embedding, default set to word2vec
