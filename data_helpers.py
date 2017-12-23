@@ -54,7 +54,7 @@ def get_datasets_20newsgroup(subset='train', categories=None, shuffle=True, rand
     :param random_state: seed integer to shuffle the dataset
     :return: data and labels of the newsgroup
     """
-    datasets = fetch_20newsgroups(subset=subset, categories=categories, shuffle=shuffle, random_state=random_state)
+    datasets = fetch_20newsgroups(subset=subset,remove=('headers', 'footers', 'quotes'),categories=categories, shuffle=shuffle, random_state=random_state)
     return datasets
 
 
@@ -64,9 +64,9 @@ def get_datasets_mrpolarity(positive_data_file, negative_data_file):
     Returns split sentences and labels.
     """
     # Load data from files
-    positive_examples = list(open(positive_data_file, "r").readlines())
+    positive_examples = list(open(positive_data_file, "r",encoding="utf-8").readlines())
     positive_examples = [s.strip() for s in positive_examples]
-    negative_examples = list(open(negative_data_file, "r").readlines())
+    negative_examples = list(open(negative_data_file, "r", encoding="utf-8").readlines())
     negative_examples = [s.strip() for s in negative_examples]
 
     datasets = dict()
@@ -159,7 +159,7 @@ def load_embedding_vectors_glove(vocabulary, filename, vector_size):
     # load embedding_vectors from the glove
     # initial matrix with random uniform
     embedding_vectors = np.random.uniform(-0.25, 0.25, (len(vocabulary), vector_size))
-    f = open(filename)
+    f = open(filename, 'rb')
     for line in f:
         values = line.split()
         word = values[0]

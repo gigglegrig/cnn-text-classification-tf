@@ -28,8 +28,8 @@ with open("config.yml", 'r') as ymlfile:
 
 # Eval Parameters
 tf.flags.DEFINE_integer("batch_size", 64, "Batch Size (default: 64)")
-tf.flags.DEFINE_string("checkpoint_dir", "", "Checkpoint directory from training run")
-tf.flags.DEFINE_boolean("eval_train", False, "Evaluate on all training data")
+tf.flags.DEFINE_string("checkpoint_dir", "./runs/1513636515/checkpoints", "Checkpoint directory from training run")
+tf.flags.DEFINE_boolean("eval_train", True, "Evaluate on all training data")
 
 # Misc Parameters
 tf.flags.DEFINE_boolean("allow_soft_placement", True, "Allow device soft device placement")
@@ -46,7 +46,7 @@ print("")
 datasets = None
 
 # CHANGE THIS: Load data. Load your own data here
-dataset_name = cfg["datasets"]["default"]
+dataset_name = "mrpolarity"
 if FLAGS.eval_train:
     if dataset_name == "mrpolarity":
         datasets = data_helpers.get_datasets_mrpolarity(cfg["datasets"][dataset_name]["positive_data_file"]["path"],
